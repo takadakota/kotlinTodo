@@ -1,0 +1,8 @@
+db:
+  image: mysql:5.7
+  ports:
+    - "3336:3306"
+  environment:
+    MYSQL_DATABASE: todo_sql //今回はtodo_sqlというdatabaseを作成します。
+    MYSQL_ROOT_USER: root
+    MYSQL_ROOT_PASSWORD: root
