@@ -2,17 +2,16 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Todo編集</title>
+    <title>Todo検索</title>
 </head>
 <body>
 <h1><a href="/todo">TODOリスト</a></h1>
 <table class="bigframetable" width="320" height="400">
     <div style="padding: 10px; margin-bottom: 10px; border: 5px double #333333;">
-        <h2>新しいTODOを作成する</h2>
-        <form action="/todo" method="post">
-            <p>TODO名<input type="text" name="TodoName"></p>
-            <p>期限<input type="text" name="timeLimit"></p>
-            <p><input type="submit" value="更新"></p>
+        <h2>未完了のTodoを検索する</h2>
+        <form action="/todo/search" method="post">
+            <input type="text" name="TodoName">
+            <p>フリーワード<input type="submit" value="検索"></p>
         </form>
     </div>
 </table>
