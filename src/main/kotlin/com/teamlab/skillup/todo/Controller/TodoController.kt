@@ -4,16 +4,20 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
+@RequestMapping("/todo")
 class TodoController {
 
-    @GetMapping("/home")
-    fun todo(model: Model): String = "todo"
+    @GetMapping("")
+    fun todo(): String = "todo"
+    @PutMapping("")
+    fun todoPut(): String = "todo"
 
-    @PutMapping("/add")
-    fun add(model: Model): String = "add"
+    @GetMapping("/search")
+    fun search(): String = "search"
 
-    @PutMapping("/edit")
-    fun edit(model: Model): String = "edit"
+    @GetMapping("/edit")
+    fun edit(): String = "edit"
 }
