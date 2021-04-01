@@ -1,13 +1,12 @@
 package com.teamlab.skillup.todo.Repository
 
-import org.apache.catalina.User
-import org.springframework.data.jpa.repository.JpaRepository
+import com.teamlab.skillup.todo.Dao.TodoDao
 import org.springframework.stereotype.Repository
 
 @Repository
-class TodoRepositoryImpl {
+class TodoRepositoryImpl(private val todoDao: TodoDao) {
 
-    fun insertTodo(TodoName: String, timeLimit: String) {
-
+    fun insertTodo(todoName: String, timeLimit: String) {
+        todoDao.insertTodo(todoName, timeLimit)
     }
 }

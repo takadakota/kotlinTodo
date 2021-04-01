@@ -3,10 +3,9 @@ package com.teamlab.skillup.todo.Entity
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.*
-import org.seasar.doma.*;
 
 @Entity
-@Table(name = "テーブル名")
+@Table(name = "TodoList_info")
 data class TodoEntity (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
