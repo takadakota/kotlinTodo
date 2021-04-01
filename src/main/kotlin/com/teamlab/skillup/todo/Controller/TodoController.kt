@@ -12,12 +12,12 @@ class TodoController(private val repository: TodoRepositoryImpl) {
 
     @GetMapping("")
     fun todo(): String {
-        return "todo"
+        return "index"
     }
     @PostMapping("")
     fun todoPost(TodoName: String, timeLimit: String): String {
         repository.insertTodo(TodoName,timeLimit)
-        return "todo"
+        return "index"
     }
 
     @GetMapping("/search")
