@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.4.30"
 	kotlin("plugin.spring") version "1.4.30"
 	kotlin("plugin.jpa") version "1.4.30"
+	id("org.seasar.doma.codegen") version "1.2.2-beta1"
 }
 
 group = "com.teamlab.skillup"
@@ -27,6 +28,8 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation ("org.seasar.doma.boot:doma-spring-boot-starter:1.4.0")
+	annotationProcessor ("org.seasar.doma:doma-processor:2.35.0")
 }
 
 tasks.withType<KotlinCompile> {

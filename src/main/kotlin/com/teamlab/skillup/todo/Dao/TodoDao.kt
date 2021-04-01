@@ -1,7 +1,8 @@
 package com.teamlab.skillup.todo.Dao
 
+import org.seasar.doma.Insert
+
 interface TodoDao {
-    //doma使いたいのでなんとかする…
     @Insert
-    fun insertTodo(TodoName: String, timeLimit: String): Int
+    fun insertTodo(todoName: String, timeLimit: String): Int
 }
