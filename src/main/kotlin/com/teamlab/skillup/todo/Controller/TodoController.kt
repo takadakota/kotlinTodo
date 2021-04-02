@@ -11,10 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/todo")
 class TodoController(private val service: TodoService) {
 
+    /**
+     * 初期表示API呼び出し
+     * String型を返してるのにmain/resource/template配下のindex.htmlが反応すのか…
+     * →その辺は優秀なフレームワークがよしなにやってくれてる
+     */
     @GetMapping("")
     fun todo(): String {
         return "index"
     }
+
+    /**
+     * Todo追加API呼び出し
+     * insert後、全件取得してHTMLに反映させる
+     */
     @PostMapping("")
     fun todoPost(todoName: String, timeLimit: String): String {
         service.insertAndAllTodoGet(todoName,timeLimit)
