@@ -31,11 +31,21 @@ class TodoController(private val service: TodoService) {
         return "index"
     }
 
+    /**
+     * Todo検索API呼び出し
+     * 検索後は検索されたもののみピックアップして表示する
+     * フリーワード検索にしたい
+     */
     @GetMapping("/search")
     fun search(): String {
         return "search"
     }
 
+    /**
+     * Todo編集API呼び出し
+     * 編集ボタン押下したら叩かれるAPI
+     * Updateが走る予定、その後はホームのindex.htmlに遷移する
+     */
     @GetMapping("/edit")
     fun edit(): String {
         return "edit"
