@@ -13,4 +13,6 @@ interface TodoDao {
     fun insertTodo(todoName: String, timeLimit: String): Int
     @Select
     fun selectAllTodo(): List<TodoEntity>
+    @Select
+    fun selectTodoById(id: Int): TodoEntity
 }
