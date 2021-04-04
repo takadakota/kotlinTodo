@@ -13,11 +13,13 @@ class TodoController(private val service: TodoService) {
 
     /**
      * 初期表示API呼び出し
+     * Todo全件取得する
      * String型を返してるのにmain/resource/template配下のindex.htmlが反応すのか…
      * →その辺は優秀なフレームワークがよしなにやってくれてる
      */
     @GetMapping("")
     fun todo(): String {
+        service.selectAllTodo()
         return "index"
     }
 
