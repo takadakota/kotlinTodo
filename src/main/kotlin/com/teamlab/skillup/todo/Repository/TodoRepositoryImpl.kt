@@ -12,4 +12,7 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) {
     fun selectAllTodo(): List<TodoEntity> {
         return todoDao.selectAllTodo()
     }
+    fun selectTodoById(id: Int): TodoEntity {
+        return todoDao.selectTodoById(id)
+    }
 }

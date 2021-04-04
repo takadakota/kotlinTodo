@@ -11,4 +11,7 @@ class TodoService(private val repository: TodoRepositoryImpl) {
         repository.insertTodo(todoName, timeLimit)
         return repository.selectAllTodo()
     }
+    fun selectTodo(id: Int): TodoEntity {
+        return repository.selectTodoById(id)
+    }
 }
