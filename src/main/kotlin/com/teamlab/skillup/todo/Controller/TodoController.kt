@@ -3,7 +3,9 @@ package com.teamlab.skillup.todo.Controller
 import com.teamlab.skillup.todo.Repository.TodoRepositoryImpl
 import com.teamlab.skillup.todo.Service.TodoService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -18,8 +20,8 @@ class TodoController(private val service: TodoService) {
      * →その辺は優秀なフレームワークがよしなにやってくれてる
      */
     @GetMapping("")
-    fun getIndexPage(): String {
-        service.selectAllTodo()
+    fun getIndexPage(model: Model): String {
+        model.addAttribute("todoList", service.findAllTodo())
         return "index"
     }
 
@@ -56,22 +58,21 @@ class TodoController(private val service: TodoService) {
     /**
      * Todo編集ページ初期表示
      * 編集ボタン押下したら叩かれるAPI
-     * Updateが走る予定、その後はホームのindex.htmlに遷移する
      */
     @GetMapping("/edit")
-    fun getEditPage(id: Int): String {
-        service.selectTodo(id)
+    fun getEditPage(@PathVariable id: Int, model: Model): String {
+        model.addAttribute("editTodo", service.findTodo(id))
         return "edit"
     }
 
     /**
-     * Todo編集ページ初期表示
-     * 編集ボタン押下したら叩かれるAPI
+     * Todo更新
+     * 編集画面にて、更新ボタン押下したら叩かれるAPI
      * Updateが走る予定、その後はホームのindex.htmlに遷移する
      */
     @GetMapping("/edit")
-    fun updateTodo(id: Int): String {
-        service.selectTodo(id)
-        return "edit"
+    fun updateTodo(@PathVariable id: Int, model: Model): String {
+        model.addAttribute("updateTodo", service.updateTodo(id))
+        return "index"
     }
 }

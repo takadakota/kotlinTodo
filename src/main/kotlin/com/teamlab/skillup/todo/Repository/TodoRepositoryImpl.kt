@@ -18,4 +18,7 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) {
     fun findTodoByFreeword(freeword: String): List<TodoEntity> {
         return todoDao.findTodoByFreeword(freeword)
     }
+    fun updateTodoById(id: Int): TodoEntity {
+        return todoDao.updateTodoById(id)
+    }
 }
