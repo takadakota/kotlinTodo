@@ -1,8 +1,8 @@
 package com.teamlab.skillup.todo.Controller
 
-import com.teamlab.skillup.todo.Repository.TodoRepositoryImpl
 import com.teamlab.skillup.todo.Service.TodoService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,8 +18,8 @@ class TodoController(private val service: TodoService) {
      * →その辺は優秀なフレームワークがよしなにやってくれてる
      */
     @GetMapping("")
-    fun getIndexPage(): String {
-        service.selectAllTodo()
+    fun getIndexPage(model: Model): String {
+        model.addAttribute("todoList", service.findAllTodo())
         return "index"
     }
 
@@ -31,7 +31,7 @@ class TodoController(private val service: TodoService) {
     @PostMapping("")
     fun todoPost(todoName: String, timeLimit: String): String {
         service.insertAndAllTodoGet(todoName,timeLimit)
-        return "index"
+        return "redirect::todo"
     }
 
     /**
@@ -50,28 +50,29 @@ class TodoController(private val service: TodoService) {
     @GetMapping("/search")
     fun searchResult(freeword: String): String {
         service.searchTodo(freeword)
-        return "search"
+        return "redirect::todo/search"
     }
 
     /**
      * Todo編集ページ初期表示
      * 編集ボタン押下したら叩かれるAPI
-     * Updateが走る予定、その後はホームのindex.htmlに遷移する
      */
     @GetMapping("/edit")
-    fun getEditPage(id: Int): String {
-        service.selectTodo(id)
+    fun getEditPage(id: Int, model: Model): String {
+        model.addAttribute("editTodo", service.findTodo(id))
         return "edit"
     }
 
     /**
-     * Todo編集ページ初期表示
-     * 編集ボタン押下したら叩かれるAPI
-     * Updateが走る予定、その後はホームのindex.htmlに遷移する
+     * Todo更新
+     * 編集画面にて、更新ボタン押下したら叩かれるAPI
+     * Updateが走る予定、その後はTOPの/todoに遷移する
      */
     @GetMapping("/edit")
     fun updateTodo(id: Int): String {
-        service.selectTodo(id)
-        return "edit"
+        // updateしてしたやつを返却するAPI
+        service.updateTodo(id)
+        // redirect → updateTodo処理終了後にindexに遷移させる
+        return "redirect::todo"
     }
 }

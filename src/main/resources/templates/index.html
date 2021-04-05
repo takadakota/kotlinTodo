@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Todo</title>
@@ -15,6 +15,14 @@
             <p><input type="submit" value="TODOの追加"></p>
         </form>
     </div>
+    <tr th:each="todo:${todoList}" th:object="${todo}">
+        <div style="padding: 10px; margin-bottom: 10px; border: 5px double #333333;">
+            <h2>th:text="*{todoName}"</h2>
+            <form action="/edit" method="get">
+                <p><input type="submit" value="編集"></p>
+            </form>
+        </div>
+    </tr>
 </table>
 </body>
 </html>
