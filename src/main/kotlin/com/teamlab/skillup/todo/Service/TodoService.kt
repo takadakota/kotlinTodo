@@ -14,7 +14,7 @@ class TodoService(private val repository: TodoRepositoryImpl) {
     fun selectTodo(id: Int): TodoEntity {
         return repository.findTodoById(id)
     }
-    fun searchTodo(freeword: String) {
+    fun searchTodo(freeword: String): List<TodoEntity> {
         return repository.findTodoByFreeword(freeword)
     }
 }
