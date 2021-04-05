@@ -15,4 +15,6 @@ interface TodoDao {
     fun selectAllTodo(): List<TodoEntity>
     @Select
     fun selectTodoById(id: Int): TodoEntity
+    @Select
+    fun findTodoByFreeword(freeword: String): List<TodoEntity>
 }

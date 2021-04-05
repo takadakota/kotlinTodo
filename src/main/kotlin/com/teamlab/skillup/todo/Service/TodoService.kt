@@ -5,13 +5,16 @@ import com.teamlab.skillup.todo.Repository.TodoRepositoryImpl
 
 class TodoService(private val repository: TodoRepositoryImpl) {
     fun selectAllTodo() {
-        repository.selectAllTodo()
+        repository.findAllTodo()
     }
     fun insertAndAllTodoGet(todoName: String, timeLimit: String): List<TodoEntity> {
         repository.insertTodo(todoName, timeLimit)
-        return repository.selectAllTodo()
+        return repository.findAllTodo()
     }
     fun selectTodo(id: Int): TodoEntity {
-        return repository.selectTodoById(id)
+        return repository.findTodoById(id)
+    }
+    fun searchTodo(freeword: String) {
+        return repository.findTodoByFreeword(freeword)
     }
 }

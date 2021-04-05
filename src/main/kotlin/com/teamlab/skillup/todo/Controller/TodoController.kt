@@ -36,11 +36,20 @@ class TodoController(private val service: TodoService) {
 
     /**
      * Todo検索初期表示
+     */
+    @GetMapping("/search")
+    fun getSearchPage(): String {
+        return "search"
+    }
+
+    /**
+     * Todo検索API
      * 検索後は検索されたもののみピックアップして表示する
      * フリーワード検索にしたい
      */
     @GetMapping("/search")
-    fun search(): String {
+    fun searchResult(freeword: String): String {
+        service.searchTodo(freeword)
         return "search"
     }
 

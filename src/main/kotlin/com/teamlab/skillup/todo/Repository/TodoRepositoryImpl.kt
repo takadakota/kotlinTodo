@@ -9,10 +9,13 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) {
     fun insertTodo(todoName: String, timeLimit: String): Int {
         return todoDao.insertTodo(todoName, timeLimit)
     }
-    fun selectAllTodo(): List<TodoEntity> {
+    fun findAllTodo(): List<TodoEntity> {
         return todoDao.selectAllTodo()
     }
-    fun selectTodoById(id: Int): TodoEntity {
+    fun findTodoById(id: Int): TodoEntity {
         return todoDao.selectTodoById(id)
+    }
+    fun findTodoByFreeword(freeword: String): List<TodoEntity> {
+        return todoDao.findTodoByFreeword(freeword)
     }
 }
