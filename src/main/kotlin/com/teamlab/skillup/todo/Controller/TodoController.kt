@@ -1,11 +1,9 @@
 package com.teamlab.skillup.todo.Controller
 
-import com.teamlab.skillup.todo.Repository.TodoRepositoryImpl
 import com.teamlab.skillup.todo.Service.TodoService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -60,7 +58,7 @@ class TodoController(private val service: TodoService) {
      * 編集ボタン押下したら叩かれるAPI
      */
     @GetMapping("/edit")
-    fun getEditPage(@PathVariable id: Int, model: Model): String {
+    fun getEditPage(id: Int, model: Model): String {
         model.addAttribute("editTodo", service.findTodo(id))
         return "edit"
     }
@@ -71,7 +69,7 @@ class TodoController(private val service: TodoService) {
      * Updateが走る予定、その後はホームのindex.htmlに遷移する
      */
     @GetMapping("/edit")
-    fun updateTodo(@PathVariable id: Int, model: Model): String {
+    fun updateTodo(id: Int, model: Model): String {
         model.addAttribute("updateTodo", service.updateTodo(id))
         return "index"
     }
