@@ -31,7 +31,7 @@ class TodoController(private val service: TodoService) {
     @PostMapping("")
     fun todoPost(todoName: String, timeLimit: String): String {
         service.insertAndAllTodoGet(todoName,timeLimit)
-        return "index"
+        return "redirect::todo"
     }
 
     /**
@@ -50,7 +50,7 @@ class TodoController(private val service: TodoService) {
     @GetMapping("/search")
     fun searchResult(freeword: String): String {
         service.searchTodo(freeword)
-        return "search"
+        return "redirect::todo/search"
     }
 
     /**
@@ -66,11 +66,13 @@ class TodoController(private val service: TodoService) {
     /**
      * Todo更新
      * 編集画面にて、更新ボタン押下したら叩かれるAPI
-     * Updateが走る予定、その後はホームのindex.htmlに遷移する
+     * Updateが走る予定、その後はTOPの/todoに遷移する
      */
     @GetMapping("/edit")
-    fun updateTodo(id: Int, model: Model): String {
-        model.addAttribute("updateTodo", service.updateTodo(id))
-        return "index"
+    fun updateTodo(id: Int): String {
+        // updateしてしたやつを返却するAPI
+        service.updateTodo(id)
+        // redirect → updateTodo処理終了後にindexに遷移させる
+        return "redirect::todo"
     }
 }
