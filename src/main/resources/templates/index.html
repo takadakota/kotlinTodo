@@ -15,12 +15,27 @@
             <p><input type="submit" value="TODOの追加"></p>
         </form>
     </div>
+    <!-- th:eachはthymeleafのforeach -->
+    <!-- th:objectは指定した変数を以降*で呼び出せるようにする -->
     <tr th:each="todo:${todoList}" th:object="${todo}">
         <div style="padding: 10px; margin-bottom: 10px; border: 5px double #333333;">
             <h2>th:text="*{todoName}"</h2>
             <form action="/edit" method="get">
                 <p><input type="submit" value="編集"></p>
             </form>
+            <!-- th:ifはtrueの時中身を表示する -->
+            <!-- th:valueで変数名nameをAPIに渡せる？ -->
+            <div th:if="*{doneFlag}">
+                <form action="/todo" method="get">
+                    <p><input type="submit" value="完了" name="doneFlag"  th:value=false></p>
+                </form>
+            </div>
+            <!-- th:unlessはfalseの時中身を表示する -->
+            <div th:unless="*{doneFlag}">
+                <form action="/todo" method="get">
+                    <p><input type="submit" value="未完了" name="doneFlag"  th:value=true></p>
+                </form>
+            </div>
         </div>
     </tr>
 </table>

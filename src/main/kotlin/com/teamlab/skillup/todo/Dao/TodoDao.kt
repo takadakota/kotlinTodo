@@ -20,4 +20,6 @@ interface TodoDao {
     fun findTodoByFreeword(freeword: String): List<TodoEntity>
     @Update
     fun updateTodoById(id: Int): TodoEntity
+    @Update(sqlFile = true)
+    fun updateDoneFlagById(id: Int): TodoEntity
 }

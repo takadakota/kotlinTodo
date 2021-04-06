@@ -33,6 +33,14 @@ class TodoController(private val service: TodoService) {
         service.insertAndAllTodoGet(todoName,timeLimit)
         return "redirect::todo"
     }
+    /**
+     * 完了フラグ入れ替え
+     */
+    @GetMapping("/doneSwitch")
+    fun doneSwitch(id: Int): String {
+        service.switchDoneFlag(id)
+        return "redirect::todo"
+    }
 
     /**
      * Todo検索初期表示
