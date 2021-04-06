@@ -23,4 +23,8 @@ class TodoService(private val repository: TodoRepositoryImpl) {
         repository.updateTodoById(id)
         return repository.findTodoById(id)
     }
+    fun switchDoneFlag(id: Int) {
+        // 完了なら未完了、未完了なら完了にupdate
+        repository.updateDoneFlagById(id)
+    }
 }

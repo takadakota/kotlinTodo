@@ -21,4 +21,8 @@ class TodoRepositoryImpl(private val todoDao: TodoDao) {
     fun updateTodoById(id: Int): TodoEntity {
         return todoDao.updateTodoById(id)
     }
+    // 完了/未完了フラグを逆にupdateする
+    fun updateDoneFlagById(id: Int): TodoEntity {
+        return todoDao.updateDoneFlagById(id)
+    }
 }
