@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo</title>
+    <link href="./css/Todo.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1><a href="/todo">TODOリスト</a>　<a href="/todo/search">検索</a></h1>
@@ -25,7 +26,7 @@
             <h3>期限:　</h3>th:text="*{timeLimit}"<br>
             <h3>作成日:</h3>th:text"*{createDate}"
             <form action="/edit" method="get">
-                <p><input type="submit" value="編集"></p>
+                <p><input type="submit" value="編集" class="EditButton"></p>
             </form>
             <!-- th:ifはtrueの時中身を表示する -->
             <!-- th:valueで変数名nameをAPIに渡せる？ -->
