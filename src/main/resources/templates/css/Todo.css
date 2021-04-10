@@ -1,21 +1,82 @@
 <style type="text/css">
-.EditButton {
+/* 赤ボタン */
+RedButton {
   display       : inline-block;
   border-radius : 5%;          /* 角丸       */
   font-size     : 18pt;        /* 文字サイズ */
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 12px 12px;   /* 余白       */
-  background    : #1a1aff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
+  background    : #66ff66;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #66ff66;    /* 枠の指定 */
+}
+.RedButton:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #66ff66;     /* 背景色     */
+  background    : #000000;     /* 文字色     */
+}
+/* 青ボタン */
+.BlueButton {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #6666ff;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
   box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
   border        : 2px solid #1a1aff;    /* 枠の指定 */
 }
-.EditButton:hover {
+.BlueButton:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #1a1aff;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+/* 緑ボタン */
+.GreenButton {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #ff7f7f;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #ff7f7f;    /* 枠の指定 */
+}
+.GreenButton:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #ff7f7f;     /* 背景色     */
+  background    : #000000;     /* 文字色     */
+}
+/* 紫ボタン */
+.PurpleButton {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #7f007f;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #7f007f;    /* 枠の指定 */
+}
+.PurpleButton:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #7f007f;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
 </style>
