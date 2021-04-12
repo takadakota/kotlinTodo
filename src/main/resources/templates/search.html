@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Todo検索</title>
@@ -18,5 +18,9 @@
         </form>
     </div>
 </table>
+<tr th:each="todo:${todoList}" th:object="${todo}">
+    <table class="bigframe2" width="320" height="300">
+    </table>
+</tr>
 </body>
 </html>
