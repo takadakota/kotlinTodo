@@ -1,7 +1,7 @@
 package com.teamlab.skillup.todo.Service
 
 import com.teamlab.skillup.todo.Entity.TodoEntity
-import com.teamlab.skillup.todo.Repository.TodoRepositoryImpl
+import com.teamlab.skillup.todo.RepositoryImpl.TodoRepositoryImpl
 import org.springframework.stereotype.Service
 
 @Service
