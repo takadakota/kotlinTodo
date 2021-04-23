@@ -7,25 +7,19 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class TodoRepositoryImpl(
-        private val todoDao: TodoDao
+        private val dao: TodoDao
 ): TodoRepository {
-    override fun insertTodo(todoName: String, timeLimit: String): Int {
-        return todoDao.insertTodo(todoName, timeLimit)
-    }
-    override fun findAllTodo(): List<TodoEntity> {
-        return todoDao.selectAllTodo()
-    }
-    override fun findTodoById(id: Int): TodoEntity {
-        return todoDao.selectTodoById(id)
-    }
-    override fun findTodoByFreeword(freeword: String): List<TodoEntity> {
-        return todoDao.findTodoByFreeword(freeword)
-    }
-    override fun updateTodoById(id: Int): TodoEntity {
-        return todoDao.updateTodoById(id)
-    }
+    override fun insertTodo(todoName: String, timeLimit: String): Int =
+        dao.insertTodo(todoName, timeLimit)
+    override fun findAllTodo(): List<TodoEntity> =
+        dao.selectAllTodo()
+    override fun findTodoById(id: Int): TodoEntity =
+        dao.selectTodoById(id)
+    override fun findTodoByFreeword(freeword: String): List<TodoEntity> =
+        dao.findTodoByFreeword(freeword)
+    override fun updateTodoById(id: Int): TodoEntity =
+        dao.updateTodoById(id)
     // 完了/未完了フラグを逆にupdateする
-    override fun updateDoneFlagById(id: Int): TodoEntity {
-        return todoDao.updateDoneFlagById(id)
-    }
+    override fun updateDoneFlagById(id: Int): TodoEntity =
+        dao.updateDoneFlagById(id)
 }
